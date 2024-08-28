@@ -53,7 +53,19 @@ public class ItemFlask extends Item {
 
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        return EnumAction.DRINK;
+
+        int choice = getIntFromTag(stack.getTagCompound(), "animation", 0);
+        switch (choice) {
+            case 0:
+                return EnumAction.DRINK;
+            case 1:
+                return EnumAction.EAT;
+            case 2:
+                return EnumAction.BOW;
+            case 3:
+                return EnumAction.BLOCK;
+        }
+        return EnumAction.NONE;
     }
 
     @Override
