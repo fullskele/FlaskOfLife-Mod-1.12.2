@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "flaskoflife:items/flask_healing_alt"
+  }
+}

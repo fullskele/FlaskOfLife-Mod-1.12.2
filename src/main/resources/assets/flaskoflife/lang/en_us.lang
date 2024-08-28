@@ -1,0 +1,23 @@
+#Item
+item.flask_healing.name=Flask of Life
+
+#Tooltip
+tooltip.flaskoflife.holdshift=Hold [SHIFT] for more information
+tooltip.flaskoflife.unlimited=Unlimited Use
+tooltip.flaskoflife.charges=%d/%d Charges
+tooltip.flaskoflife.healing=%d Health
+tooltip.flaskoflife.percenthealing=%d%% Health
+tooltip.flaskoflife.mana=%d Mana
+tooltip.flaskoflife.feathers=%d Feathers
+tooltip.flaskoflife.plus=+
+tooltip.flaskoflife.empty=
+
+
+#Potency Tooltip
+potion.potency.4=IV
+potion.potency.5=V
+potion.potency.6=VI
+potion.potency.7=VII
+potion.potency.8=VIII
+potion.potency.9=IX
+potion.potency.10=X

@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "flaskoflife:items/flask_healing"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "examplemod:sprite": 1.0
+      },
+      "model": "flaskoflife:item/flask_healing_alt"
+    }
+  ]
+}

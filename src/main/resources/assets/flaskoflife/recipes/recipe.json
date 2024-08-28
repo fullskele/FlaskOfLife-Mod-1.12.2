@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "bxb",
+    "xax",
+    "bxb"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemEmerald"
+    },
+    "a":
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    "b":
+    {
+      "item": "minecraft:speckled_melon"
+    }
+  },
+  "result":
+  {
+    "item": "flaskoflife:flask_healing",
+    "count": 1,
+    "data": 0
+  }
+}

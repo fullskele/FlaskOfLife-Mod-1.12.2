@@ -1,0 +1,65 @@
+package com.fullskele.flaskoflife;
+
+import com.fullskele.flaskoflife.proxy.ClientProxy;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+@Mod(modid = FlaskOfLife.MODID, name = FlaskOfLife.NAME, version = FlaskOfLife.VERSION)
+public class FlaskOfLife {
+    public static final String MODID = "flaskoflife";
+    public static final String NAME = "Flask of Life";
+    public static final String VERSION = "1.0";
+
+    public static File config;
+    public static List<Block> refillBlocks = new ArrayList<>();
+
+    @Mod.Instance
+    public static FlaskOfLife instance;
+
+    @SidedProxy(clientSide = "com.fullskele.flaskoflife.proxy.ClientProxy")
+    public static ClientProxy clientProxy;
+
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        ConfigHandler.RegisterConfig(event);
+    }
+
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
+        for (String blockString : ConfigHandler.REFILL_BLOCKS) {
+            Block block = Block.getBlockFromName(blockString);
+            if (block != null) {
+                refillBlocks.add(block);
+            }
+        }
+    }
+
+
+    @GameRegistry.ObjectHolder(FlaskOfLife.MODID)
+    public static class Items {
+        public static final ItemFlask flask_healing = new ItemFlask("flask_healing");
+
+    }
+
+    @Mod.EventBusSubscriber
+    public static class ObjectRegistryHandler {
+        @SubscribeEvent
+        public static void addItems(RegistryEvent.Register<Item> event) {
+
+            event.getRegistry().register(Items.flask_healing);
+        }
+    }
+
+}
