@@ -311,10 +311,18 @@ public class ItemFlask extends Item {
         List<ItemStack> stacks = InventoryUtils.getPrioritisedHotbarAndOffhand(player);
         stacks.addAll(player.inventory.armorInventory); // player#getArmorInventoryList() only returns an Iterable
 
+        ItemStack toCharge;
+        if (amount > 0) {
+            toCharge = stacks.stream()
+                    .filter(s -> s.getItem() instanceof IManaStoringItem && !((IManaStoringItem)s.getItem()).isManaFull(s))
+                    .min(Comparator.comparingDouble(s -> ((IManaStoringItem)s.getItem()).getFullness(s))).orElse(null);
+        } else {
+            toCharge = stacks.stream()
+                    .filter(s -> s.getItem() instanceof IManaStoringItem)
+                    .min(Comparator.comparingDouble(s -> ((IManaStoringItem)s.getItem()).getFullness(s))).orElse(null);
+        }
         // Find the chargeable item with the least mana
-        ItemStack toCharge = stacks.stream()
-                .filter(s -> s.getItem() instanceof IManaStoringItem && !((IManaStoringItem)s.getItem()).isManaFull(s))
-                .min(Comparator.comparingDouble(s -> ((IManaStoringItem)s.getItem()).getFullness(s))).orElse(null);
+
 
         if(toCharge != null) {
 
