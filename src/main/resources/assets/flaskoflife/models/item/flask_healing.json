@@ -6,7 +6,7 @@
   "overrides": [
     {
       "predicate": {
-        "examplemod:sprite": 1
+        "flaskoflife:sprite": 1.0
       },
       "model": "flaskoflife:item/flask_healing_alt"
     }

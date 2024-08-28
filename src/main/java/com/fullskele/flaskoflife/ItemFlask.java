@@ -46,7 +46,7 @@ public class ItemFlask extends Item {
             @Override
             public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entity) {
                 NBTTagCompound nbttagcompound = stack.getTagCompound();
-                return getIntFromTag(nbttagcompound, "sprite", 0);
+                return getFloatFromTag(nbttagcompound, "sprite", 0);
             }
         });
     }
