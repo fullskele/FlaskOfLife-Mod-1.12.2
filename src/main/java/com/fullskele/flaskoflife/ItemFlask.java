@@ -184,9 +184,7 @@ public class ItemFlask extends Item {
         ItemStack itemStack = playerIn.getHeldItem(handIn);
         NBTTagCompound nbttagcompound = itemStack.getTagCompound();
 
-            // Get the position of the block the player is looking at
-
-
+        // Get the position of the block the player is looking at
         if (GuiScreen.isShiftKeyDown() && getBooleanFromTag(nbttagcompound, "refillable", true)) {
             RayTraceResult rayTraceResult = this.rayTrace(worldIn, playerIn, true);
             if (rayTraceResult != null && rayTraceResult.typeOfHit == RayTraceResult.Type.BLOCK) {
