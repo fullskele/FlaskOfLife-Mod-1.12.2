@@ -1,6 +1,6 @@
 package com.fullskele.flaskoflife;
 
-import com.fullskele.flaskoflife.proxy.ClientProxy;
+import com.fullskele.flaskoflife.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -13,9 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 @Mod(modid = FlaskOfLife.MODID, name = FlaskOfLife.NAME, version = FlaskOfLife.VERSION)
 public class FlaskOfLife {
@@ -29,8 +27,8 @@ public class FlaskOfLife {
     @Mod.Instance
     public static FlaskOfLife instance;
 
-    @SidedProxy(clientSide = "com.fullskele.flaskoflife.proxy.ClientProxy")
-    public static ClientProxy clientProxy;
+    @SidedProxy(clientSide = "com.fullskele.flaskoflife.proxy.ClientProxy", serverSide = "com.fullskele.flaskoflife.proxy.CommonProxy")
+    public static CommonProxy commonProxy;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
