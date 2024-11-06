@@ -11,7 +11,7 @@ import static net.minecraftforge.fml.relauncher.Side.CLIENT;
 
 
 @Mod.EventBusSubscriber(modid = FlaskOfLife.MODID, value = CLIENT)
-public class ClientProxy {
+public class ClientProxy extends CommonProxy {
 
     @SubscribeEvent
     public static void registerTextures(ModelRegistryEvent event) {

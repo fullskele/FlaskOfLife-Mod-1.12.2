@@ -5,6 +5,7 @@ import com.elenai.elenaidodge2.api.FeathersHelper;
 import electroblob.wizardry.item.IManaStoringItem;
 import electroblob.wizardry.util.InventoryUtils;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -185,7 +186,7 @@ public class ItemFlask extends Item {
         NBTTagCompound nbttagcompound = itemStack.getTagCompound();
 
         // Get the position of the block the player is looking at
-        if (GuiScreen.isShiftKeyDown() && getBooleanFromTag(nbttagcompound, "refillable", true)) {
+        if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown() && getBooleanFromTag(nbttagcompound, "refillable", true)) {
             RayTraceResult rayTraceResult = this.rayTrace(worldIn, playerIn, true);
             if (rayTraceResult != null && rayTraceResult.typeOfHit == RayTraceResult.Type.BLOCK) {
 

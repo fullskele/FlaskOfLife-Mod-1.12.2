@@ -19,7 +19,7 @@ import java.util.HashSet;
 public class FlaskOfLife {
     public static final String MODID = "flaskoflife";
     public static final String NAME = "Flask of Life";
-    public static final String VERSION = "1.0.3";
+    public static final String VERSION = "1.0.3HOTFIX";
 
     public static File config;
     public static HashSet<Block> refillBlocks = new HashSet<>();
